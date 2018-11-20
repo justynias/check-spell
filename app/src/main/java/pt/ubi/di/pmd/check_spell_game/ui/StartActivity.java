@@ -4,14 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-
-
 import pt.ubi.di.pmd.check_spell_game.R;
 
 public class StartActivity extends Activity implements View.OnClickListener {
 
     StartPresenter presenter;
     EditText nameTV;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
