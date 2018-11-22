@@ -1,12 +1,14 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
 import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
+import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
 public class Game {
 
     private Player currentPlayer;
     private SingleRound currentRoud;
     private int points;
+    private WordProvider wordProvider;
 
     public Player getCurrentPlayer() {
         return currentPlayer;
@@ -46,7 +48,8 @@ public Game(){
     this.currentPlayer=PlayerProvider.readJson();
     points=0;
     level=0;
-    currentRoud=new SingleRound();
+    this.wordProvider=new WordProvider();
+    currentRoud=new SingleRound(this.wordProvider);
 }
 
 
