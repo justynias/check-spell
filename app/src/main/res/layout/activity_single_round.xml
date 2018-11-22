@@ -4,10 +4,7 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <!--<TextView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:text="Single round"/>-->
+
 
     <LinearLayout
         android:id="@+id/wordLayout"
@@ -43,16 +40,20 @@
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:layout_alignParentBottom="true">
+
         <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/nextButton"
-            android:text="NEXT"/>
-        <Button
-            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/checkButton"
             android:text="CHECK"/>
+        <Button
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:id="@+id/nextButton"
+            android:visibility="invisible"
+            android:text="NEXT"/>
     </LinearLayout>
 
 
