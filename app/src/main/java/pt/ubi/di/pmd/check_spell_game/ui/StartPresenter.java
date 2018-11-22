@@ -1,7 +1,9 @@
 package pt.ubi.di.pmd.check_spell_game.ui;
+
 import android.util.Log;
 
-import pt.ubi.di.pmd.check_spell_game.DataProvider.DataProvider;
+import pt.ubi.di.pmd.check_spell_game.App;
+import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
 import pt.ubi.di.pmd.check_spell_game.Model.Player;
 
 public class StartPresenter {
@@ -19,15 +21,11 @@ public class StartPresenter {
     playerModel= new Player();
 
 }
-//
-//    public void startButtonClicked() {
-//        view.navigateToGame();
-//
-//    }
+
 
     public void savePlayer(String name){
 
-    //validation!!
+    //validation!! in the model?
 
 
         if(name.isEmpty()){
@@ -42,7 +40,7 @@ public class StartPresenter {
             playerModel.setName(name);
 
             // write-> JsonUtil.toJSon(playerModel);
-            DataProvider.saveToJson(this.view, playerModel);
+            PlayerProvider.saveToJson(playerModel);
             // Log.d("JSON", JsonUtil.toJSon(playerModel));
 
             view.navigateToGame();

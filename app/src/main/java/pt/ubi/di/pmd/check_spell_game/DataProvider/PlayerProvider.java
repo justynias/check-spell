@@ -1,15 +1,20 @@
 package pt.ubi.di.pmd.check_spell_game.DataProvider;
+
 import android.content.Context;
+
 import org.json.JSONException;
 import org.json.JSONObject;
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+
+import pt.ubi.di.pmd.check_spell_game.App;
 import pt.ubi.di.pmd.check_spell_game.Model.Player;
 
-public class DataProvider{
+public class PlayerProvider{
 
     private static String filePath;
-    private static String filename= "check_spell.json";
+    private static final String filename= "check_spell.json";
 
     public static String toJSon(Player player){
         try{
@@ -23,7 +28,8 @@ public class DataProvider{
         }
         return null;
     }
-   public static boolean saveToJson(Context context, Player player){
+   public static boolean saveToJson(Player player){
+        Context context=App.getContext();
        String jsonString=toJSon(player);
        String fileContents = jsonString;
        FileOutputStream outputStream;
@@ -41,8 +47,9 @@ public class DataProvider{
        return false;
    }
 
-   public static Player readJson(Context context){
+   public static Player readJson(){
 
+        Context context=App.getContext();
         FileInputStream inputStream;
         String json = null;
 
