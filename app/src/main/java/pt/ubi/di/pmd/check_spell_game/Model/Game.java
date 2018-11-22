@@ -49,8 +49,11 @@ public Game(){
     points=0;
     level=0;
     this.wordProvider=new WordProvider();
-    currentRoud=new SingleRound(this.wordProvider);
 }
 
+
+public void loadRoud(){
+    currentRoud=new SingleRound(this.wordProvider);
+}
 
 }

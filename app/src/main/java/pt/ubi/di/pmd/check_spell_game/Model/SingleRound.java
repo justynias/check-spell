@@ -24,6 +24,15 @@ public class SingleRound {
     private WordProvider wordProvider;
     private int tryNumber;
     private String currentWord;
+
+    public String getDividedWord1() {
+        return dividedWord1;
+    }
+
+    public String getDividedWord2() {
+        return dividedWord2;
+    }
+
     private String dividedWord1;
     private String dividedWord2;
 
@@ -31,10 +40,10 @@ public class SingleRound {
     public SingleRound (WordProvider wordProvider){
         this.wordProvider=wordProvider;
         this.currentWord=wordProvider.getRandomWord();
-        DivideWord();
+        divideWord();
     }
 
-    public void DivideWord(){
+    public void divideWord(){
         Random rand = new Random();
         int i=rand.nextInt(this.currentWord.length());
         dividedWord1=currentWord.substring(0,i);

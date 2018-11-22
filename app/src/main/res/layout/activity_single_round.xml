@@ -20,7 +20,7 @@
             android:layout_height="wrap_content" />
 
         <EditText
-            android:id="@+id/wordEditText"
+            android:id="@+id/answerEditText"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:maxLength="1"

@@ -13,15 +13,21 @@ public class SingleRoundPresenter {
 
     SingleRoundPresenter(SingleRoundActivity view){
         this.view=view;
-
         gameModel=new Game();
-        currentRound=gameModel.getCurrentRoud();
+
         Log.d("LOGGED_PLAYER", gameModel.getCurrentPlayer().getName());
+       loadRound();
 
     }
 
 
     public void loadRound(){
+        //then change in model the round
+        gameModel.loadRoud();
+        currentRound=gameModel.getCurrentRoud();
+        this.view.setword1TextView(currentRound.getDividedWord1());
+        this.view.setword2TextView(currentRound.getDividedWord2());
+        //this.view.setword1TextView("DUPS");
 
     }
 
