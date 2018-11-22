@@ -63,7 +63,6 @@
             android:id="@+id/word1TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             tools:layout_editor_absoluteX="252dp"
             tools:layout_editor_absoluteY="28dp" />
 
@@ -79,7 +78,6 @@
             android:id="@+id/word2TextView"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="TextView"
             tools:layout_editor_absoluteX="78dp"
             tools:layout_editor_absoluteY="36dp" />
     </LinearLayout>
