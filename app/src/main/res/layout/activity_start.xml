@@ -29,6 +29,7 @@
         android:layout_marginEnd="8dp"
         android:layout_marginBottom="6dp"
         android:hint="Insert your name"
+        android:digits="ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
