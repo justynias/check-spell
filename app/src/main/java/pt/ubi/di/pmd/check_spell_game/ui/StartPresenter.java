@@ -39,8 +39,6 @@ public class StartPresenter {
             playerModel.setName(name);
 
             PlayerProvider.saveToJson(playerModel);
-            // Log.d("JSON", JsonUtil.toJSon(playerModel));
-
             view.navigateToGame();
         }
 

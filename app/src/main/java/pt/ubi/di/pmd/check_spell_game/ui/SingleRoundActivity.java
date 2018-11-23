@@ -2,7 +2,6 @@ package pt.ubi.di.pmd.check_spell_game.ui;
 
 import android.app.Activity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -67,7 +66,7 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
         this.word2TV.setText(text);
     }
 
-    public void setSkiptButtonVisible(){
+    public void setSkipButtonVisible(){
         skipButton.setVisibility(View.VISIBLE);
     }
     public void setSkipButtonInvisible(){skipButton.setVisibility(View.INVISIBLE);}
@@ -87,12 +86,13 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.checkButton:
-                Log.d("WYNIK", "sprawdzam..");
                 this.presenter.checkAnswer(answerET.getText().toString());
                 break;
             case R.id.nextButton:
                 this.presenter.loadRound();
                 break;
+            case R.id.skipButton:
+                this.presenter.loadRound();
         }
 
     }

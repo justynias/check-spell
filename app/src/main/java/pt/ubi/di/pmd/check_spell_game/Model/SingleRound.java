@@ -6,14 +6,13 @@ import java.util.Random;
 
 import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
-public class SingleRound {
+public class SingleRound { //need to add -> checking asnwer if exist in the dictionary!
+
 
 
     private WordProvider wordProvider;
     private int tryNumber;
     private String currentWord;
-    private boolean isCompleted;
-    private boolean isSkipable;
     private String correctAnswer;
     private String playerAnswer;
     private String dividedWord1;
@@ -56,8 +55,8 @@ public void incrementTryNumber(){
 
     public boolean isCompleted() {
 
-    Log.d("WYNIK_COR", correctAnswer);
-        Log.d("WYNIK_PLAY", playerAnswer);
+    Log.d("ANSW_COR", correctAnswer);
+        Log.d("ANSW_PLAY", playerAnswer);
 
         return playerAnswer.equals(correctAnswer);
     }
@@ -78,14 +77,6 @@ public void incrementTryNumber(){
         this.dividedWord2=currentWord.substring(i+1);
         correctAnswer=currentWord.substring(divider, divider+1);
 
-//ZA DLUGIE SLOWA, JAKIS EXCEPION
-        ///
-        Log.d("WORD", currentWord);
-        Log.d("WORD1", dividedWord1);
-        Log.d("WORD2", dividedWord2);
-        Log.d("WORD_ANS", correctAnswer);
-
-//need to add -> checking asnwer if exist in the dictionary!
     }
 
 

@@ -1,6 +1,4 @@
 package pt.ubi.di.pmd.check_spell_game.ui;
-import android.util.Log;
-
 import pt.ubi.di.pmd.check_spell_game.Model.Game;
 import pt.ubi.di.pmd.check_spell_game.Model.SingleRound;
 
@@ -15,7 +13,7 @@ public class SingleRoundPresenter {
         this.view=view;
         gameModel=new Game();
 
-        Log.d("LOGGED_PLAYER", gameModel.getCurrentPlayer().getName());
+        //Log.d("LOGGED_PLAYER", gameModel.getCurrentPlayer().getName());
        loadRound();
 
     }
@@ -38,7 +36,6 @@ public class SingleRoundPresenter {
     }
 
     public void updateScore(){
-        //set level and points
         view.setLevelTV(String.valueOf(gameModel.getLevel()));
         view.setPointsTV(String.valueOf(gameModel.getPoints()));
 
@@ -46,10 +43,6 @@ public class SingleRoundPresenter {
 
     public void checkAnswer(String answer) {
         gameModel.checkRound(answer);
-
-        Log.d("WYNIK", String.valueOf(gameModel.getLevel()));
-        Log.d("WYNIK", String.valueOf(gameModel.getPoints()));
-
         updateScore();
 
         if(currentRound.isCompleted()){
@@ -60,7 +53,7 @@ public class SingleRoundPresenter {
         }
         else {
             if(currentRound.isSkipable()){
-                view.setSkiptButtonVisible();
+                view.setSkipButtonVisible();
             }
             view.cleanAnswerET();
         }

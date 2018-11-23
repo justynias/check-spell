@@ -1,11 +1,9 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
-import android.util.Log;
-
 import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
 import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
-public class Game {
+public class Game {  //need to add the high score functionality-> check, show the user, share, save to file
 
     private Player currentPlayer;
     private SingleRound currentRound;
@@ -49,19 +47,16 @@ public void loadRound(){
 public void checkRound(String answer){
 
     currentRound.setPlayerAnswer(answer);
-    if(currentRound.isCompleted()){
-        Log.d("WYNIK", "completed");
+    currentRound.incrementTryNumber();
 
-        try {
-            points+=100/currentRound.getTryNumber();
-        } catch (Exception e){points+=100;}
+    if(currentRound.isCompleted()){
+        points+=100/currentRound.getTryNumber();
 
         if(points%1000==0)
         {
             level++;
         }
     }
-    currentRound.incrementTryNumber();
 
 }
 
