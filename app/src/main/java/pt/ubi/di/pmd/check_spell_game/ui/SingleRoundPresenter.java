@@ -22,13 +22,40 @@ public class SingleRoundPresenter {
 
 
     public void loadRound(){
-        //then change in model the round
-        gameModel.loadRoud();
+        view.cleanAnswerET();
+        gameModel.loadRound();
         currentRound=gameModel.getCurrentRoud();
-        this.view.setword1TextView(currentRound.getDividedWord1());
-        this.view.setword2TextView(currentRound.getDividedWord2());
-        //this.view.setword1TextView("DUPS");
+        this.view.setWord1TextView(currentRound.getDividedWord1());
+        this.view.setWord2TextView(currentRound.getDividedWord2());
+    }
+
+    public void updateScore(){
+        //set level and points
 
     }
 
+    public void checkAnswer(String answer) {
+        gameModel.checkRound(answer);
+
+        Log.d("WYNIK", String.valueOf(gameModel.getLevel()));
+        Log.d("WYNIK", String.valueOf(gameModel.getPoints()));
+
+        //updateScore()
+
+        if(currentRound.isCompleted()){
+            view.setNextButtonVisible();
+            view.setCheckButtonDisable();
+            view.setAnswerETdisable();
+
+        }
+        else {
+            if(currentRound.isSkipable()){
+                view.setNextButtonVisible();
+            }
+            view.cleanAnswerET();
+
+        }
+        
+
+    }
 }

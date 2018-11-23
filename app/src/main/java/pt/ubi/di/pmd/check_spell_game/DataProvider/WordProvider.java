@@ -26,11 +26,6 @@ public class WordProvider {
             Random rand = new Random();
             int i = rand.nextInt(dictionary.size());
             return dictionary.get(i);
-           // Log.d("slowo", randomWord);
-            //StringBuilder tempWord= new StringBuilder(randomWord);
-//            i=rand.nextInt(randomWord.length());
-//            firstPartWord.setText(randomWord.substring(0,i));
-//            secondPartWord.setText(randomWord.substring(i+1));
     }
 
     private void loadDictionary(){

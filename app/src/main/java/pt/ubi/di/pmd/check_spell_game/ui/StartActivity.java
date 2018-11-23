@@ -34,7 +34,6 @@ public class StartActivity extends Activity implements View.OnClickListener{
         switch (view.getId()) {
             case R.id.startButton:
                 presenter.savePlayer(nameTV.getText().toString());
-                //presenter.startButtonClicked();
                 break;
         }
 
@@ -52,7 +51,12 @@ public class StartActivity extends Activity implements View.OnClickListener{
     }
 
 
+    protected void onResume() {
+        // TODO Auto-generated method stub
+        super.onResume();
+        nameTV.setText("");
 
+    }
 
 }
 

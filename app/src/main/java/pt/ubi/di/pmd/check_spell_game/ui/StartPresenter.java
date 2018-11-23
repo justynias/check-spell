@@ -2,7 +2,6 @@ package pt.ubi.di.pmd.check_spell_game.ui;
 
 import android.util.Log;
 
-import pt.ubi.di.pmd.check_spell_game.App;
 import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
 import pt.ubi.di.pmd.check_spell_game.Model.Player;
 
@@ -39,7 +38,6 @@ public class StartPresenter {
         {
             playerModel.setName(name);
 
-            // write-> JsonUtil.toJSon(playerModel);
             PlayerProvider.saveToJson(playerModel);
             // Log.d("JSON", JsonUtil.toJSon(playerModel));
 
