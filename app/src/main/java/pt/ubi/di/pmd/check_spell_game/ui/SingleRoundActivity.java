@@ -20,6 +20,7 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     private TextView word2TV;
     private Button checkButton;
     private Button nextButton;
+    private Button skipButton;
     private TextView pointsTV;
     private TextView levelTV;
 
@@ -45,13 +46,16 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
         word2TV=findViewById(R.id.word2TextView);
         checkButton=findViewById(R.id.checkButton);
         nextButton=findViewById(R.id.nextButton);
+        skipButton=findViewById(R.id.skipButton);
         pointsTV=findViewById(R.id.playerPointsTextView);
         levelTV=findViewById(R.id.playerLevelTextView);
+
+
 
         //init listeners
         nextButton.setOnClickListener(this);
         checkButton.setOnClickListener(this);
-
+        skipButton.setOnClickListener(this);
 
     }
 
@@ -63,12 +67,15 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
         this.word2TV.setText(text);
     }
 
-    public void setNextButtonVisible(){
-        nextButton.setVisibility(View.VISIBLE);
+    public void setSkiptButtonVisible(){
+        skipButton.setVisibility(View.VISIBLE);
     }
-    public void setNextButtonInvisible(){nextButton.setVisibility(View.INVISIBLE);}
+    public void setSkipButtonInvisible(){skipButton.setVisibility(View.INVISIBLE);}
     public void setCheckButtonEnable(boolean enable){
         checkButton.setEnabled(enable);
+    }
+    public void setNextButtonEnable(boolean enable){
+        nextButton.setEnabled(enable);
     }
     public void cleanAnswerET(){answerET.setText("");}
     public void setAnswerETenable(boolean enable){answerET.setEnabled(enable);}

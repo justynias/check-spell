@@ -23,8 +23,9 @@ public class SingleRoundPresenter {
     public void resetView(){
         view.cleanAnswerET();
         view.setAnswerETenable(true);
-        view.setNextButtonInvisible();
+        view.setNextButtonEnable(false);
         view.setCheckButtonEnable(true);
+        view.setSkipButtonInvisible();
     }
 
     public void loadRound(){
@@ -52,14 +53,14 @@ public class SingleRoundPresenter {
         updateScore();
 
         if(currentRound.isCompleted()){
-            view.setNextButtonVisible();
+            view.setNextButtonEnable(true);
             view.setCheckButtonEnable(false);
             view.setAnswerETenable(false);
 
         }
         else {
             if(currentRound.isSkipable()){
-                view.setNextButtonVisible();
+                view.setSkiptButtonVisible();
             }
             view.cleanAnswerET();
         }
