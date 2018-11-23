@@ -24,17 +24,6 @@ public void incrementTryNumber(){
 }
 
 
-    public String getCorrectAnswer() {
-        return correctAnswer;
-    }
-
-    public void setCorrectAnswer(String correctAnswer) {
-        this.correctAnswer = correctAnswer;
-    }
-
-    public String getPlayerAnswer() {
-        return playerAnswer;
-    }
 
     public void setPlayerAnswer(String playerAnswer) {
 
@@ -63,17 +52,7 @@ public void incrementTryNumber(){
         return tryNumber;
     }
 
-    public void setTryNumber(int tryNumber) {
-        this.tryNumber = tryNumber;
-    }
 
-    public String getCurrentWord() {
-        return currentWord;
-    }
-
-    public void setCurrentWord(String currentWord) {
-        this.currentWord = currentWord;
-    }
 
     public boolean isCompleted() {
 
@@ -84,20 +63,6 @@ public void incrementTryNumber(){
     }
 
 
-
-    public void setSkipable(boolean skipable) {
-        isSkipable = skipable;
-    }
-
-
-
-    public void setDividedWord1(String dividedWord1) {
-        this.dividedWord1 = dividedWord1;
-    }
-
-    public void setDividedWord2(String dividedWord2) {
-        this.dividedWord2 = dividedWord2;
-    }
 
     public SingleRound (WordProvider wordProvider){
         this.wordProvider=wordProvider;
@@ -120,11 +85,9 @@ public void incrementTryNumber(){
         Log.d("WORD2", dividedWord2);
         Log.d("WORD_ANS", correctAnswer);
 
-
+//need to add -> checking asnwer if exist in the dictionary!
     }
-//    public boolean isAnswerCorrect(String answer){
-//        return answer==this.answer;
-//    }
+
 
 
 }

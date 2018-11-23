@@ -20,6 +20,8 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     private TextView word2TV;
     private Button checkButton;
     private Button nextButton;
+    private TextView pointsTV;
+    private TextView levelTV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,8 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
         word2TV=findViewById(R.id.word2TextView);
         checkButton=findViewById(R.id.checkButton);
         nextButton=findViewById(R.id.nextButton);
+        pointsTV=findViewById(R.id.playerPointsTextView);
+        levelTV=findViewById(R.id.playerLevelTextView);
 
         //init listeners
         nextButton.setOnClickListener(this);
@@ -62,12 +66,15 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     public void setNextButtonVisible(){
         nextButton.setVisibility(View.VISIBLE);
     }
-    public void setCheckButtonDisable(){
-        checkButton.setEnabled(false);
+    public void setNextButtonInvisible(){nextButton.setVisibility(View.INVISIBLE);}
+    public void setCheckButtonEnable(boolean enable){
+        checkButton.setEnabled(enable);
     }
-    public void cleanAnswerET(){answerET.setText("");    }
-    public void setAnswerETdisable(){answerET.setEnabled(false);}
+    public void cleanAnswerET(){answerET.setText("");}
+    public void setAnswerETenable(boolean enable){answerET.setEnabled(enable);}
 
+    public void setPointsTV(String points){pointsTV.setText(points);}
+    public void setLevelTV(String level){levelTV.setText(level);}
 
     @Override
     public void onClick(View view) {

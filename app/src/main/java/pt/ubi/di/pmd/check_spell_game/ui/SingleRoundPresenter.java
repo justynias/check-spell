@@ -20,9 +20,16 @@ public class SingleRoundPresenter {
 
     }
 
+    public void resetView(){
+        view.cleanAnswerET();
+        view.setAnswerETenable(true);
+        view.setNextButtonInvisible();
+        view.setCheckButtonEnable(true);
+    }
 
     public void loadRound(){
-        view.cleanAnswerET();
+
+        resetView();
         gameModel.loadRound();
         currentRound=gameModel.getCurrentRoud();
         this.view.setWord1TextView(currentRound.getDividedWord1());
@@ -31,6 +38,8 @@ public class SingleRoundPresenter {
 
     public void updateScore(){
         //set level and points
+        view.setLevelTV(String.valueOf(gameModel.getLevel()));
+        view.setPointsTV(String.valueOf(gameModel.getPoints()));
 
     }
 
@@ -40,12 +49,12 @@ public class SingleRoundPresenter {
         Log.d("WYNIK", String.valueOf(gameModel.getLevel()));
         Log.d("WYNIK", String.valueOf(gameModel.getPoints()));
 
-        //updateScore()
+        updateScore();
 
         if(currentRound.isCompleted()){
             view.setNextButtonVisible();
-            view.setCheckButtonDisable();
-            view.setAnswerETdisable();
+            view.setCheckButtonEnable(false);
+            view.setAnswerETenable(false);
 
         }
         else {
@@ -53,9 +62,9 @@ public class SingleRoundPresenter {
                 view.setNextButtonVisible();
             }
             view.cleanAnswerET();
-
         }
-        
+
+
 
     }
 }
