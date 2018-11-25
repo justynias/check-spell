@@ -1,5 +1,7 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
+import android.util.Log;
+
 import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
 import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
@@ -17,6 +19,7 @@ public class Game implements GameInterface{
     public Game(){
         playerProvider= new PlayerProvider();
         currentPlayer=playerProvider.readJson();
+        Log.d("DUPA", currentPlayer.getName());
         points=0;
         level=0;
         wordProvider=new WordProvider();
@@ -77,8 +80,8 @@ public void checkRound(String answer){
         if(!playerName.equals(currentPlayer.getName()))
         {
 
-            currentPlayer=new Player();
-            currentPlayer.setName(playerName);
+            currentPlayer=new Player(playerName);
+            //currentPlayer.setName(playerName);
             playerProvider.saveToJson(currentPlayer);
         }
 

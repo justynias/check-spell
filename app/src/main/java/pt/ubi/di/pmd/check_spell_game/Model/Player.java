@@ -5,6 +5,13 @@ public class Player implements PlayerInterface{
     private String name;
     private int bestScore;
 
+    public Player(String name){
+        this.name=name;
+    }
+    public Player(String name, int bestScore){
+        this.name=name;
+        this.bestScore=bestScore;
+    }
 
     public String getName() {
         return name;

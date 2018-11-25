@@ -51,8 +51,7 @@ public class PlayerProvider implements PlayerProviderInterface {
 
         Context context=App.getContext();
         FileInputStream inputStream;
-        String json = null;
-
+        String json;
         try{
             inputStream = context.openFileInput(filename);
             int size = inputStream.available();
@@ -63,8 +62,9 @@ public class PlayerProvider implements PlayerProviderInterface {
             return fromJson(json);
             } catch(Exception e) {
             e.printStackTrace();
-            }
-        return null;
+            return new Player("");
+        }
+
 
    }
 
@@ -72,10 +72,7 @@ public class PlayerProvider implements PlayerProviderInterface {
    {
        try{
            JSONObject reader = new JSONObject(jsonString);
-           Player tempPlayer= new Player();
-           tempPlayer.setName(reader.getString("name"));
-           tempPlayer.setBestScore(reader.getInt("best_score"));
-           return tempPlayer;
+           return new Player(reader.getString("name"),reader.getInt("best_score"));
        }catch(JSONException e){
            e.printStackTrace();
            return null;
