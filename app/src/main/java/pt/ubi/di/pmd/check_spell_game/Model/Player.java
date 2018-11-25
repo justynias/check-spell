@@ -22,4 +22,11 @@ public class Player {
         this.bestScore = bestScore;
     }
 
+    @Override
+    public String toString() {
+        return "Player{" +
+                "name='" + name + '\'' +
+                ", bestScore=" + bestScore +
+                '}';
+    }
 }

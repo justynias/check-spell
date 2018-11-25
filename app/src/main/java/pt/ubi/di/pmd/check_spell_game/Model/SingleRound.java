@@ -30,7 +30,7 @@ public void incrementTryNumber(){
 
     }
 
-    public boolean isSkipable() {
+    public boolean isSkippable() {
         return (tryNumber>=5 || playerAnswer==correctAnswer);
     }
 

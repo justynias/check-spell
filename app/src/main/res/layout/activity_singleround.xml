@@ -16,6 +16,16 @@
         app:layout_constraintRight_toLeftOf="@+id/pointsTextView"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/shareButton"
+        android:text="Share!"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toStartOf="@+id/playerPointsTextView"
+        app:layout_constraintTop_toBottomOf="@+id/pointsTextView" />
+
     <TextView
         android:id="@+id/pointsTextView"
         android:layout_width="wrap_content"
@@ -43,6 +53,20 @@
         app:layout_constraintTop_toBottomOf="@id/pointsTextView" />
 
 
+    <TextView
+        android:id="@+id/highScoreTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:text="New high score!"
+        android:textSize="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/word1TextView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/levelTextView"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
         android:id="@+id/word1TextView"
         android:layout_width="wrap_content"

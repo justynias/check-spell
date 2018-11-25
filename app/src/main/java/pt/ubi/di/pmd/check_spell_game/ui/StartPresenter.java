@@ -2,47 +2,43 @@ package pt.ubi.di.pmd.check_spell_game.ui;
 
 import android.util.Log;
 
-import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
-import pt.ubi.di.pmd.check_spell_game.Model.Player;
+import pt.ubi.di.pmd.check_spell_game.Model.Game;
 
 public class StartPresenter {
 
     StartActivity view; // not null between onResume() and onPause()
-    Player playerModel;
+    //Player playerModel;
+    Game gameModel;
 
-    public Player getPlayerModel() {
-        return playerModel;
-    }
+    //public Player getPlayerModel() {
+//        return playerModel;
+//    }
 
     public StartPresenter(StartActivity view){
 
     this.view=view;
-    playerModel= new Player();
+    gameModel=new Game();
+    view.setNameTV(gameModel.getCurrentPlayer().getName());
+        Log.d("PLAYER_PRESENTER", gameModel.getCurrentPlayer().getName());
+}
+
+public void startGame(String playerName){  //validation
+
+    if(playerName.isEmpty()){
+
+        view.setError("Name can not be epmty!");
+    }
+    else if(playerName.trim().isEmpty()){
+        view.setError("Insert some characters!");
+    }
+    else
+    {
+        gameModel.savePlayer(playerName);
+        view.navigateToGame();
+    }
 
 }
 
 
-    public void savePlayer(String name){
-
-    //validation!! in the model?
-
-
-        if(name.isEmpty()){
-            Log.d("VALIDATION", "WRONG");
-            view.setError("Name can not be epmty!");
-        }
-        else if(name.trim().isEmpty()){
-            view.setError("Insert some characters!");
-        }
-        else
-        {
-            playerModel.setName(name);
-
-            PlayerProvider.saveToJson(playerModel);
-            view.navigateToGame();
-        }
-
-
-    }
 
 }

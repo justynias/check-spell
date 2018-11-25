@@ -1,16 +1,18 @@
 package pt.ubi.di.pmd.check_spell_game.ui;
+
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import pt.ubi.di.pmd.check_spell_game.R;
 
 public class StartActivity extends Activity implements View.OnClickListener{
 
     StartPresenter presenter;
-    EditText nameTV;
+    EditText nameET;
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,11 +23,16 @@ public class StartActivity extends Activity implements View.OnClickListener{
 
     }
 
+    public void setNameTV(String playerName){
+        //nameTV.setHint(playerName);
+        nameET.setText(playerName ,TextView.BufferType.EDITABLE);
+    }
+
 
     private void initViews() {
 
         findViewById(R.id.startButton).setOnClickListener(this);
-        nameTV = findViewById(R.id.nameEditText);
+        nameET = findViewById(R.id.nameEditText);
 
     }
 
@@ -33,7 +40,7 @@ public class StartActivity extends Activity implements View.OnClickListener{
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.startButton:
-                presenter.savePlayer(nameTV.getText().toString());
+                presenter.startGame(nameET.getText().toString());
                 break;
         }
 
@@ -41,22 +48,20 @@ public class StartActivity extends Activity implements View.OnClickListener{
     void navigateToGame() {
         Intent intent = new Intent(this, SingleRoundActivity.class);
 
-        //initial passing the player, view should not do this
-       // intent.putExtra("CURRENT_PLAYER", presenter.getPlayerModel().getName());
         startActivity(intent);
     }
 
     void setError(String error){
-        nameTV.setError(error);
+        nameET.setError(error);
     }
 
 
-    protected void onResume() {
-        // TODO Auto-generated method stub
-        super.onResume();
-        nameTV.setText("");
-
-    }
+//    protected void onResume() {
+//        // TODO Auto-generated method stub
+//        super.onResume();
+//        nameET.setText("");
+//
+//    }
 
 }
 

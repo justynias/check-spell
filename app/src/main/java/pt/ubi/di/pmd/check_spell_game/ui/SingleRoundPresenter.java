@@ -12,8 +12,6 @@ public class SingleRoundPresenter {
     SingleRoundPresenter(SingleRoundActivity view){
         this.view=view;
         gameModel=new Game();
-
-        //Log.d("LOGGED_PLAYER", gameModel.getCurrentPlayer().getName());
        loadRound();
 
     }
@@ -30,9 +28,10 @@ public class SingleRoundPresenter {
 
         resetView();
         gameModel.loadRound();
-        currentRound=gameModel.getCurrentRoud();
+        currentRound=gameModel.getCurrentRound();
         this.view.setWord1TextView(currentRound.getDividedWord1());
         this.view.setWord2TextView(currentRound.getDividedWord2());
+
     }
 
     public void updateScore(){
@@ -43,7 +42,12 @@ public class SingleRoundPresenter {
 
     public void checkAnswer(String answer) {
         gameModel.checkRound(answer);
+        if(gameModel.isRecordBroken()){
+            view.showHighScore();
+
+        }
         updateScore();
+
 
         if(currentRound.isCompleted()){
             view.setNextButtonEnable(true);
@@ -52,13 +56,15 @@ public class SingleRoundPresenter {
 
         }
         else {
-            if(currentRound.isSkipable()){
+            if(currentRound.isSkippable()){
                 view.setSkipButtonVisible();
             }
             view.cleanAnswerET();
         }
 
+    }
 
-
+    public void shareHighScore(){
+        view.shareHighScore(gameModel.getPoints());
     }
 }
