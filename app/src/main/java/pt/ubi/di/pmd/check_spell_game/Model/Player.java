@@ -1,6 +1,6 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
-public class Player {
+public class Player implements PlayerInterface{
 
     private String name;
     private int bestScore;
@@ -22,11 +22,4 @@ public class Player {
         this.bestScore = bestScore;
     }
 
-    @Override
-    public String toString() {
-        return "Player{" +
-                "name='" + name + '\'' +
-                ", bestScore=" + bestScore +
-                '}';
-    }
 }

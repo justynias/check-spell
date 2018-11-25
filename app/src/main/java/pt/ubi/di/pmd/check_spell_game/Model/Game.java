@@ -1,55 +1,48 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
-import android.util.Log;
-
 import pt.ubi.di.pmd.check_spell_game.DataProvider.PlayerProvider;
 import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
-public class Game {
+public class Game implements GameInterface{
 
     private Player currentPlayer;
     private SingleRound currentRound;
+    private PlayerProvider playerProvider;
+    private WordProvider wordProvider;
     private int points;
+    private int level;
+    private boolean isRecordBroken;  // need another solution
+
+
+    public Game(){
+        playerProvider= new PlayerProvider();
+        currentPlayer=playerProvider.readJson();
+        points=0;
+        level=0;
+        wordProvider=new WordProvider();
+        isRecordBroken=false;
+    }
 
     public Player getCurrentPlayer() {
         return currentPlayer;
     }
 
-    private WordProvider wordProvider;
-    private int level;
-    private boolean isRecordBroken;  // need another solution
-
-
-
     public boolean isRecordBroken() {
         return isRecordBroken;
     }
-
-
 
     public SingleRound getCurrentRound() {
         return currentRound;
     }
 
-
     public int getPoints() {
         return points;
     }
-
 
     public int getLevel() {
         return level;
     }
 
-
-public Game(){
-    this.currentPlayer=PlayerProvider.readJson();
-    Log.d("PLAYER", currentPlayer.toString());
-    points=0;
-    level=0;
-    this.wordProvider=new WordProvider();
-    isRecordBroken=false;
-}
 
 
 public void loadRound(){
@@ -59,8 +52,8 @@ public void loadRound(){
 
 public void checkRound(String answer){
 
-    currentRound.setPlayerAnswer(answer);
     currentRound.incrementTryNumber();
+    currentRound.setPlayerAnswer(answer);
 
     if(currentRound.isCompleted()){
         points+=100/currentRound.getTryNumber();
@@ -72,8 +65,7 @@ public void checkRound(String answer){
         if(points>currentPlayer.getBestScore())
         {
             currentPlayer.setBestScore(points);
-            PlayerProvider.saveToJson(currentPlayer);
-            Log.d("SCORE", "high score");
+            playerProvider.saveToJson(currentPlayer);
             isRecordBroken=true;
         }
     }
@@ -82,19 +74,13 @@ public void checkRound(String answer){
 
     public void savePlayer(String playerName){
 
-
-
         if(!playerName.equals(currentPlayer.getName()))
         {
 
             currentPlayer=new Player();
             currentPlayer.setName(playerName);
-            PlayerProvider.saveToJson(currentPlayer);
+            playerProvider.saveToJson(currentPlayer);
         }
-
-
-
-
 
     }
 }

@@ -26,7 +26,7 @@
 
     <Button
         android:id="@+id/shareButton"
-        android:layout_width="59dp"
+        android:layout_width="68dp"
         android:layout_height="33dp"
         android:layout_marginTop="8dp"
         android:background="@color/colorLightGreen"
@@ -60,7 +60,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/levelTextView"
         android:textSize="@dimen/font_size_large"
-        android:textColor="@color/colorLightPeach"
+        android:textColor="@color/colorLightCoral"
 
 
         />
@@ -73,7 +73,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@id/pointsTextView"
         android:textSize="@dimen/font_size_large"
-        android:textColor="@color/colorLightPeach"
+        android:textColor="@color/colorLightCoral"
 
 
         />
@@ -168,6 +168,7 @@
         app:layout_constraintRight_toLeftOf="@+id/nextButton"
         android:textSize="@dimen/font_size_small"
         android:background="@color/colorLightGreen"
+
         />
 
     <Button

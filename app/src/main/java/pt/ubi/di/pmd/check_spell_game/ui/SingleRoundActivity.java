@@ -13,7 +13,7 @@ import pt.ubi.di.pmd.check_spell_game.R;
 
 
 
-public class SingleRoundActivity extends Activity implements View.OnClickListener{
+public class SingleRoundActivity extends Activity implements View.OnClickListener, SingleRoundActivityInterface{
 
     private SingleRoundPresenter presenter;
     private EditText answerET;
@@ -23,14 +23,14 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     private Button checkButton;
     private Button nextButton;
     private Button skipButton;
-    private Button shareButton;
     private TextView pointsTV;
     private TextView levelTV;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singleround);
-       initViews();
+        initViews();
+        initListeners();
 
        presenter=new SingleRoundPresenter(this);
 
@@ -45,28 +45,18 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
         nextButton=findViewById(R.id.nextButton);
         skipButton=findViewById(R.id.skipButton);
         pointsTV=findViewById(R.id.playerPointsTextView);
-        shareButton= findViewById(R.id.shareButton);
         levelTV=findViewById(R.id.playerLevelTextView);
         highScoreTV=findViewById(R.id.highScoreTextView);
 
+    }
 
-
-        //init listeners
+    private void initListeners(){
+        findViewById(R.id.shareButton).setOnClickListener(this);
         nextButton.setOnClickListener(this);
         checkButton.setOnClickListener(this);
         skipButton.setOnClickListener(this);
-        shareButton.setOnClickListener(this);
-
-
     }
 
-    public void setWord1TextView(String text){
-        this.word1TV.setText(text);
-    }
-
-    public void setWord2TextView(String text){
-        this.word2TV.setText(text);
-    }
 
     public void setSkipButtonVisible(){
         skipButton.setVisibility(View.VISIBLE);
@@ -80,9 +70,6 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     }
     public void cleanAnswerET(){answerET.setText("");}
     public void setAnswerETenable(boolean enable){answerET.setEnabled(enable);}
-
-    public void setPointsTV(String points){pointsTV.setText(points);}
-    public void setLevelTV(String level){levelTV.setText(level);}
 
 
     public void shareHighScore(int score){
@@ -131,5 +118,15 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
                 this.presenter.shareHighScore();
         }
 
+    }
+
+    public void updateWord(String dividedWord1, String dividedWord2) {
+        word1TV.setText(dividedWord1);
+        word2TV.setText(dividedWord2);
+    }
+
+    public void updateScore(String points, String level){
+        pointsTV.setText(points);
+        levelTV.setText(level);
     }
 }

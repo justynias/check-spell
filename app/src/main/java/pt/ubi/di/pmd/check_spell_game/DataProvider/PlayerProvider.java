@@ -11,12 +11,12 @@ import java.io.FileOutputStream;
 import pt.ubi.di.pmd.check_spell_game.App;
 import pt.ubi.di.pmd.check_spell_game.Model.Player;
 
-public class PlayerProvider{
+public class PlayerProvider implements PlayerProviderInterface {
 
     private static String filePath;
     private static final String filename= "check_spell.json";
 
-    public static String toJSon(Player player){
+    private String toJSon(Player player){
         try{
             JSONObject jsonObj = new JSONObject();
             jsonObj.put("name", player.getName()); // Set the first name/pair
@@ -28,7 +28,7 @@ public class PlayerProvider{
         }
         return null;
     }
-   public static boolean saveToJson(Player player){
+   public boolean saveToJson(Player player){
         Context context=App.getContext();
        String jsonString=toJSon(player);
        String fileContents = jsonString;
@@ -47,7 +47,7 @@ public class PlayerProvider{
        return false;
    }
 
-   public static Player readJson(){
+   public Player readJson(){
 
         Context context=App.getContext();
         FileInputStream inputStream;
@@ -68,7 +68,7 @@ public class PlayerProvider{
 
    }
 
-   public static Player fromJson(String jsonString)
+   private Player fromJson(String jsonString)
    {
        try{
            JSONObject reader = new JSONObject(jsonString);

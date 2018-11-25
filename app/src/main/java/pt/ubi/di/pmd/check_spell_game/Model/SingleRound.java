@@ -1,19 +1,17 @@
 package pt.ubi.di.pmd.check_spell_game.Model;
 
-import android.util.Log;
-
 import java.util.Random;
 
 import pt.ubi.di.pmd.check_spell_game.DataProvider.WordProvider;
 
-public class SingleRound { //need to add -> checking asnwer if exist in the dictionary!
+public class SingleRound implements SingleRoundInterface{ //need to add -> checking asnwer if exist in the dictionary!
 
 
 
     private WordProvider wordProvider;
     private int tryNumber;
     private String currentWord;
-    private String correctAnswer; //?
+    private String correctAnswer;
     private String playerAnswer;
     private String dividedWord1;
     private String dividedWord2;
@@ -33,9 +31,6 @@ public void incrementTryNumber(){
         return (tryNumber>=5);
     }
 
-
-
-
     public String getDividedWord1() {
         return dividedWord1;
     }
@@ -44,23 +39,13 @@ public void incrementTryNumber(){
         return dividedWord2;
     }
 
-
-
     public int getTryNumber() {
         return tryNumber;
     }
 
-
-
     public boolean isCompleted() {
-
-    Log.d("ANSW_COR", correctAnswer);
-    Log.d("ANSW_PLAY", playerAnswer);
-
         return wordProvider.checkWord(playerAnswer);
-        //return playerAnswer.equals(correctAnswer);
     }
-
 
 
     public SingleRound (WordProvider wordProvider){
@@ -69,7 +54,7 @@ public void incrementTryNumber(){
         divideWord();
     }
 
-    public void divideWord(){
+    private void divideWord(){
         Random rand = new Random();
         int divider=rand.nextInt(currentWord.length());
         int i =divider;

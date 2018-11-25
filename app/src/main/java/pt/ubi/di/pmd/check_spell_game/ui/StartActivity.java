@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import pt.ubi.di.pmd.check_spell_game.R;
 
-public class StartActivity extends Activity implements View.OnClickListener{
+public class StartActivity extends Activity implements View.OnClickListener, StartActivityInterface{
 
     StartPresenter presenter;
     EditText nameET;
@@ -24,7 +24,6 @@ public class StartActivity extends Activity implements View.OnClickListener{
     }
 
     public void setNameTV(String playerName){
-        //nameTV.setHint(playerName);
         nameET.setText(playerName ,TextView.BufferType.EDITABLE);
     }
 
@@ -33,7 +32,15 @@ public class StartActivity extends Activity implements View.OnClickListener{
 
         findViewById(R.id.startButton).setOnClickListener(this);
         nameET = findViewById(R.id.nameEditText);
+    }
+    public void navigateToGame() {
 
+        Intent intent = new Intent(this, SingleRoundActivity.class);
+        startActivity(intent);
+    }
+
+    public void setError(String error){
+        nameET.setError(error);
     }
 
     @Override
@@ -45,23 +52,7 @@ public class StartActivity extends Activity implements View.OnClickListener{
         }
 
     }
-    void navigateToGame() {
-        Intent intent = new Intent(this, SingleRoundActivity.class);
 
-        startActivity(intent);
-    }
-
-    void setError(String error){
-        nameET.setError(error);
-    }
-
-
-//    protected void onResume() {
-//        // TODO Auto-generated method stub
-//        super.onResume();
-//        nameET.setText("");
-//
-//    }
 
 }
 

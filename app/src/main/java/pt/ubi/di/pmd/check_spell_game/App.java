@@ -8,7 +8,6 @@ public class App extends Application {
     private static Context context;
 
     public static Context getContext() {
-        //Log.d("DUPA", context.toString());
         return context;
     }
 
@@ -16,6 +15,5 @@ public class App extends Application {
     public void onCreate() {
         super.onCreate();
         context = getApplicationContext();
-
     }
 }

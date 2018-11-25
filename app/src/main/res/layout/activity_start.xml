@@ -7,40 +7,34 @@
     android:layout_height="match_parent">
 
 
-    <Button
-        android:id="@+id/startButton"
-        android:layout_width="154dp"
-        android:layout_height="72dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="108dp"
-        android:text="Start"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        android:textColor="@color/colorLightWhite"
-        android:background="@color/colorLightGreen"
-        android:textSize="@dimen/font_size_medium"
-        />
-
     <EditText
         android:id="@+id/nameEditText"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:layout_marginBottom="6dp"
-        android:hint="Insert your name"
-        android:digits="qwertyuiopasdfghjklzxcvbnm0123456789"
         app:layout_constraintBottom_toTopOf="@+id/startButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.502"
-        android:textSize="@dimen/font_size_medium"
+        app:layout_constraintVertical_bias="0.889"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
         android:backgroundTint="@color/colorLightGreen"
+        android:textSize="@dimen/font_size_medium"
+        android:digits="qwertyuiopasdfghjklzxcvbnm0123456789"
+        android:hint="Insert your name"
+        />
+
+    <Button
+        android:id="@+id/startButton"
+        android:layout_width="110dp"
+        android:layout_height="40dp"
+        android:layout_marginBottom="196dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:background="@color/colorLightGreen"
+        android:textColor="@color/colorLightWhite"
+        android:textSize="@dimen/font_size_medium"
+        android:text="Start"
         />
 
 </android.support.constraint.ConstraintLayout>

@@ -1,25 +1,18 @@
 package pt.ubi.di.pmd.check_spell_game.ui;
 
-import android.util.Log;
-
 import pt.ubi.di.pmd.check_spell_game.Model.Game;
+import pt.ubi.di.pmd.check_spell_game.Model.GameInterface;
 
-public class StartPresenter {
+public class StartPresenter implements StartPresenterInterface{
 
-    StartActivity view; // not null between onResume() and onPause()
-    //Player playerModel;
-    Game gameModel;
+    StartActivityInterface view;
+    GameInterface gameModel;
 
-    //public Player getPlayerModel() {
-//        return playerModel;
-//    }
-
-    public StartPresenter(StartActivity view){
+    public StartPresenter(StartActivityInterface view){
 
     this.view=view;
     gameModel=new Game();
     view.setNameTV(gameModel.getCurrentPlayer().getName());
-        Log.d("PLAYER_PRESENTER", gameModel.getCurrentPlayer().getName());
 }
 
 public void startGame(String playerName){  //validation
@@ -38,7 +31,5 @@ public void startGame(String playerName){  //validation
     }
 
 }
-
-
 
 }

@@ -11,7 +11,7 @@ import java.util.Random;
 import pt.ubi.di.pmd.check_spell_game.App;
 import pt.ubi.di.pmd.check_spell_game.R;
 
-public class WordProvider {
+public class WordProvider implements WordProviderInterface{
 
     private final int filename= R.raw.dictionary;
     private ArrayList<String> dictionary;

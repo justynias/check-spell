@@ -1,18 +1,19 @@
 package pt.ubi.di.pmd.check_spell_game.ui;
 import pt.ubi.di.pmd.check_spell_game.Model.Game;
-import pt.ubi.di.pmd.check_spell_game.Model.SingleRound;
+import pt.ubi.di.pmd.check_spell_game.Model.GameInterface;
+import pt.ubi.di.pmd.check_spell_game.Model.SingleRoundInterface;
 
-public class SingleRoundPresenter {
+public class SingleRoundPresenter implements SingleRoundPresenterInterface{
 
-    SingleRoundActivity view;
-    Game gameModel;
-    SingleRound currentRound;
+    SingleRoundActivityInterface view;
+    GameInterface gameModel;
+    SingleRoundInterface currentRound;
 
 
-    SingleRoundPresenter(SingleRoundActivity view){
+    SingleRoundPresenter(SingleRoundActivityInterface view){
         this.view=view;
         gameModel=new Game();
-       loadRound();
+        loadRound();
 
     }
 
@@ -29,22 +30,18 @@ public class SingleRoundPresenter {
         resetView();
         gameModel.loadRound();
         currentRound=gameModel.getCurrentRound();
-        this.view.setWord1TextView(currentRound.getDividedWord1());
-        this.view.setWord2TextView(currentRound.getDividedWord2());
+        view.updateWord(currentRound.getDividedWord1(),currentRound.getDividedWord2() );
 
     }
 
     public void updateScore(){
-        view.setLevelTV(String.valueOf(gameModel.getLevel()));
-        view.setPointsTV(String.valueOf(gameModel.getPoints()));
-
+        view.updateScore(String.valueOf(gameModel.getPoints()), String.valueOf(gameModel.getLevel()));
     }
 
     public void checkAnswer(String playerAnswer) {
         gameModel.checkRound(playerAnswer);
         if(gameModel.isRecordBroken()){
             view.showHighScore();
-
         }
         updateScore();
 
