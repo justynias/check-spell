@@ -40,8 +40,8 @@ public class SingleRoundPresenter {
 
     }
 
-    public void checkAnswer(String answer) {
-        gameModel.checkRound(answer);
+    public void checkAnswer(String playerAnswer) {
+        gameModel.checkRound(playerAnswer);
         if(gameModel.isRecordBroken()){
             view.showHighScore();
 

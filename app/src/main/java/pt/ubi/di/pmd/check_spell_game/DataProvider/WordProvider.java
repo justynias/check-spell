@@ -43,6 +43,12 @@ public class WordProvider {
         }
     }
 
+    public boolean checkWord(String word){
 
+        if(dictionary.contains(word)){
+            return true;
+        }
+        return false;
+    }
 
 }

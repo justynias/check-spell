@@ -13,7 +13,7 @@ public class SingleRound { //need to add -> checking asnwer if exist in the dict
     private WordProvider wordProvider;
     private int tryNumber;
     private String currentWord;
-    private String correctAnswer;
+    private String correctAnswer; //?
     private String playerAnswer;
     private String dividedWord1;
     private String dividedWord2;
@@ -26,12 +26,11 @@ public void incrementTryNumber(){
 
     public void setPlayerAnswer(String playerAnswer) {
 
-    this.playerAnswer = playerAnswer;
-
+        this.playerAnswer=dividedWord1+playerAnswer+dividedWord2;
     }
 
     public boolean isSkippable() {
-        return (tryNumber>=5 || playerAnswer==correctAnswer);
+        return (tryNumber>=5);
     }
 
 
@@ -56,9 +55,10 @@ public void incrementTryNumber(){
     public boolean isCompleted() {
 
     Log.d("ANSW_COR", correctAnswer);
-        Log.d("ANSW_PLAY", playerAnswer);
+    Log.d("ANSW_PLAY", playerAnswer);
 
-        return playerAnswer.equals(correctAnswer);
+        return wordProvider.checkWord(playerAnswer);
+        //return playerAnswer.equals(correctAnswer);
     }
 
 
