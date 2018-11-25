@@ -96,7 +96,7 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
     public void showHighScore(){
         // fade out view nicely after 2 seconds
 
-        final float startSize = 50; // Size in pixels
+        final float startSize = 45; // Size in pixels
         final float endSize = 0;
         long animationDuration = 2000; // Animation duration in ms
 
@@ -107,7 +107,6 @@ public class SingleRoundActivity extends Activity implements View.OnClickListene
             @Override
             public void onAnimationUpdate(ValueAnimator valueAnimator) {
                 float animatedValue = (float) valueAnimator.getAnimatedValue();
-                highScoreTV.setText("New high score!");
                 highScoreTV.setTextSize(animatedValue);
             }
 
